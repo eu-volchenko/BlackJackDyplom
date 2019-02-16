@@ -1,0 +1,52 @@
+<div class="container" style="text-align: center">
+    <div class="row plan">
+        <div class="col-md-12">
+            <div class="col-md-12" id="dealer-place">
+                <label *ngIf="flag">{{dealerModel.name}}</label>
+                <div class="cardList">
+                    <img class="cards" *ngFor="let card of dealerModel.cards" src="assets/images/back.png" />
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div *ngFor="let bot of botsModel" class="col-md-3 bot-cards">
+                <label *ngIf="flag">{{bot.name}}</label>
+                <div class="cardList">
+                    <img class="cards" *ngFor="let card of bot.cards" src="assets/images/back.png" />
+                </div>
+            </div>
+
+        </div>
+        <div class="col-md-12">
+            <label *ngIf="flag">{{playerModel.name}}</label>
+            <div class="cardList">
+                <img class="cards" *ngFor="let card of playerModel.cards" src="assets/images/{{card}}.png" />
+            </div>
+            <label>Your Money: {{playerModel.money}}</label>
+        </div>
+
+        <div>
+            <div class="menu" id="menu" *ngIf="showWinner">
+                <label>Winner is - {{winnerModel.name}}</label>
+                <div class="cardList">
+                    <img class="cards" *ngFor="let card of winnerModel.cards" src="assets/images/{{card}}.png" />
+                </div>
+                <button id="one-more-round" class=" menu-buttons btn btn-primary" (click)='oneMoreRound()'>One more round</button>
+                <button id="finish-game" class=" menu-buttons btn btn-primary" (click)='finishGame()'>Finish Game</button>
+            </div>
+            <div class="menu" *ngIf="showLooser">
+                <p>{{looserModel.name}}, You ran out of money!</p>
+                <p>You have - {{looserModel.money}}!</p>
+                <p>GAME OVER!</p>
+                <button (click)="onMainPage()">On main page</button>
+            </div>
+        </div>
+        <input type="button" class="btn btn-primary" value="One More" id="one-more" (click)="oneMore()" />
+        <input type="button" class="btn btn-primary" value="Finish Round" id="finish-round" (click)="finishRound()" />
+        <div class="hide-window" *ngIf="showWinner"></div>
+    </div>
+    <div class="image">
+        <div class="hide-image"></div>
+        <img src="assets/images/blackjack-table.svg" />
+    </div>
+</div>

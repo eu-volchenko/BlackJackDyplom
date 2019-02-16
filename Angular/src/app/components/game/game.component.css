@@ -1,0 +1,94 @@
+img {
+    width: 100%;
+    height: 100%;
+}
+
+.cardList {
+    display: flex;
+    flex-direction: row;
+    height: 120px;
+    width: 100px;
+    margin: auto;
+}
+
+.cardListEndRound {
+    margin: auto;
+}
+
+.cards {
+    height: 100px;
+    width: auto;
+    margin-left: -50%;
+    border: 2px solid black;
+    border-radius: 10px;
+    background: white;
+}
+
+.cardsEndRound {
+    height: 200px;
+    width: auto;
+    border: 2px solid black;
+    border-radius: 10px;
+    background: white;
+}
+
+.menu {
+    width: 70%;
+    height: 70%;
+    position: absolute;
+    top: 15%;
+    left: 15%;
+    background-color: cadetblue;
+    padding: 2%;
+    z-index: 10;
+    border-radius: 15px;
+    border: 2px solid black;
+}
+
+html {
+    z-index: 0;
+}
+
+.menu-buttons {
+    width: 300px;
+    height: 90px;
+    font-size: large;
+}
+
+.hide-window {
+    background: rgba(0,0,0,.6);
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    z-index: 5;
+}
+
+
+.image{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+.hide-image{
+    background: rgba(0,0,0,.2);
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    z-index: 3;
+}
+
+.bot-cards{
+    margin-left: 20%;
+}
+
+label{
+    color: black;
+    font-size: x-large;
+}
+
+.plan{
+    z-index: 4;
+}

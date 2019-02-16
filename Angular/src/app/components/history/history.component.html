@@ -1,0 +1,68 @@
+<div class="scrole">
+<table  class="table table-striped table ">
+        <thead>
+            <tr>
+                <td>Date Time</td>
+                <td>Id</td>
+                <td>Count Of Bots</td>
+                <td></td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let p of gameHistoryModel">
+              
+                    <td>{{p?.dateTimeGame}}</td>
+                    <td>{{p?.id}}</td>
+                    <td>{{p?.countOfBots}}</td>
+                    <td>
+                        <button class="btn btn-sm btn-primary" (click)='getRounds(p.id)'>Info</button>
+                    </td>
+           
+            </tr>
+        </tbody>
+</table>
+
+<div *ngIf = "showDetails" class = "menu content-body row ">
+    <div (click)="closeDetails()"><a><img  class = "closeImg" src="assets/images/close.png"/></a></div>
+    <div class="col-md-6 scroleData">
+    <table class="table table-striped">
+            <thead>
+                <td width="100px">Round In Game</td>
+                <td  width="100px">Winner Name</td>
+                <td  width="100px">More Details</td>
+            </thead>
+            <tbody>
+                <tr *ngFor = "let round of roundModel">
+                      
+                                <td>{{round?.roundInGame}}</td>
+                                <td>{{round?.winnerName}}</td>
+                                <td>
+                                    <button class="btn btn-sm btn-primary" (click)="getUsers(round.id)">Show</button>
+                                    <button class = "btn btn-sm btn-primary" (click)="getRoundCards(round.id)">Card Deck</button>
+                                </td>
+                    
+                </tr>
+            </tbody>
+    </table>
+</div>
+
+        <div class="scroleData col-md-6" *ngIf = "showDeepDetails">
+                <div  *ngFor = "let user of userModel">
+                        <label>{{user.name}}</label>
+                        <div class="cardList">
+                            <img class="cards" *ngFor = "let card of user.cards" src="assets/images/{{card}}.png"/>
+                        </div>
+                </div>
+        </div>
+        <div class="scroleData col-md-6" *ngIf = "showCardDeck">
+                <div>
+                        <label>Number of round: {{cardsRound.numberRound}}</label>
+                        <div class="cardList">
+                            <img class="cards" *ngFor = "let card of cardsRound.cardsId" src="assets/images/{{card}}.png"/>
+                        </div>
+                </div>
+        </div>
+
+</div>
+</div>
+<div *ngIf="showDetails" class="dark"></div>

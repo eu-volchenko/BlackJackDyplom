@@ -1,0 +1,29 @@
+<div class="center">
+<base href="/"/>
+<h1>Create Game</h1>
+<div id="content">
+    <div class="row" style="color: crimson">{{errorList}}</div>
+    <div class="row">
+        <div class="col-sm-4">
+            <label class="control-label" for="playerName">Your Name: </label>
+            <input type="text" [(ngModel)]="innerGameModel.playerName" class="form-control" id="playerName" />
+            <label  class="control-label" for="dealerName">Dealer Name: </label>
+            <input type="text" [(ngModel)]="innerGameModel.dealerName" id="dealerName" class="form-control" />
+            <label class="control-label">Rate</label>
+            <input type="text" class="form-control" [(ngModel)]="innerGameModel.rate"/>
+            <label class="control-label">Start Money</label>
+            <input type="text" class="form-control" [(ngModel)]="innerGameModel.money"/>
+        </div>
+        
+        <div class="col-sm-4" id="bots">
+            <button (click)="addBot()" class="btn-primary btn">Add bot</button>
+            <button (click)="deleteBot()" class="btn-primary btn">Delete bot</button>
+            <div *ngFor="let singleItem of innerGameModel.nameOfBots let i = index">
+                <label>Name of Bot</label>
+                <input type="text" class="form-control" value="{{singleItem}}" [(ngModel)]="singleItem.botName"/>
+            </div>
+        </div>
+    </div>
+    <button class="btn btn-primary" style="position: absolute" id="sendData" (click)="save()">Start game</button>
+</div>
+</div>
